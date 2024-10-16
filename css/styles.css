@@ -1,0 +1,527 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+/* Navigation Bar Styling */
+.navbar {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffcc00;
+}
+
+/* Chatbot Button */
+.chatbot-btn {
+    background: #ffcc00;
+    color: #007bff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    font-weight: bold;
+}
+
+/* Menu Icon for Mobile */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #007bff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+/* Home Section Styling */
+.home-section {
+    background: linear-gradient(135deg, #c3c8ce, #0056b3);
+    padding: 4rem 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-content {
+    max-width: 600px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.home-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.home-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.appointment-btn {
+    background: #ffcc00;
+    color: #0056b3;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    font-weight: bold;
+}
+
+.appointment-btn:hover {
+    background: #ffcc33;
+    color: #edf3f8;
+    transform: translateY(-3px);
+}
+
+.home-image {
+    max-width: 400px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.home-image img {
+    width: 75%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .home-section .container {
+        flex-direction: column;
+    }
+
+    .home-content {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .home-content h2 {
+        font-size: 2rem;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+    }
+}
+/* Health Tips Section Styling */
+.health-tips-section {
+    background: #f8f9fa;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.health-tips-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #007bff;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Tips Grid */
+.tips-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* Tip Item Styling */
+.tip-item {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 250px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: slideIn 1s ease-in-out;
+}
+
+.tip-item i {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.tip-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tip-item p {
+    font-size: 1rem;
+}
+
+/* Hover Effects */
+.tip-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .tips-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* Featured Services Section Styling */
+.featured-services-section {
+    background: #e9f7ff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.featured-services-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #007bff;
+}
+
+/* Featured Services Grid */
+.featured-services-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.featured-service-item {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: slideIn 1s ease-in-out;
+}
+
+.featured-service-item i {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.featured-service-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Events Section Styling */
+.events-section {
+    background: #f0f4f8;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.events-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #007bff;
+}
+
+/* Events List */
+.events-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-item {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem 0;
+    width: 80%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* FAQs Section Styling */
+.faqs-section {
+    background: #e9f7ff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.faqs-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #007bff;
+}
+
+/* FAQs List */
+.faqs-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem 0;
+    width: 80%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .featured-services-grid, .events-list, .faqs-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* Footer Section Styling */
+.footer {
+    background: #007bff;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.social-links {
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #f0f0f0;
+}
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background-color: #f7faff; /* Light background for better contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.home-content {
+    max-width: 600px; /* Limit the width for better readability */
+}
+
+.home-content h2 {
+    color: #007bff; /* Blue color for the heading */
+    font-size: 2.5rem; /* Increased font size */
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in; /* Fade-in animation */
+}
+
+.home-content p {
+    font-size: 1.2rem; /* Slightly larger font for better readability */
+    line-height: 1.5; /* Increase line height for spacing */
+    margin-bottom: 1.5rem; /* Space below paragraph */
+}
+
+.appointment-btn {
+    background-color: #ffcc00; /* Blue button background */
+    color: #fff; /* White text */
+    padding: 1rem 2rem; /* Larger button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded button */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth background change */
+    font-size: 1rem; /* Font size for button */
+}
+
+.appointment-btn a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit button color */
+}
+
+.appointment-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.home-image {
+    flex: 1; /* Allow the image section to grow */
+    display: flex; /* Center image */
+    justify-content: center; /* Center horizontally */
+}
+
+.home-image img {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for the image */
+}
+
+/* Animation for fading in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

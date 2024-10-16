@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - VarunCare Clinic</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .navbar {
+            background-color: #007bff;
+            padding: 1rem;
+        }
+        .navbar .logo h1 {
+            color: #fff;
+            margin: 0;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+        .nav-links li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffe600;
+        }
+        .services-section {
+            padding: 2rem;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .services-section:hover {
+            transform: translateY(-5px);
+        }
+        .services-section h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .service-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .service-card h3 {
+            margin-top: 0.5rem;
+            color: #007bff;
+        }
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            color: #fff;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffe600;
+        }
+        @media (min-width: 768px) {
+            .services-grid {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <h1>VarunCare <i class="fas fa-heartbeat"></i></h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="header-btn">
+            <button class="chatbot-btn">Use Chatbot</button>
+        </div>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-stethoscope fa-3x"></i>
+                <h3>General Checkup</h3>
+                <p>Comprehensive health assessments to ensure your well-being.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-md fa-3x"></i>
+                <h3>Specialist Consultations</h3>
+                <p>Access to top specialists for various health issues.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-syringe fa-3x"></i>
+                <h3>Vaccinations</h3>
+                <p>Stay protected with our vaccination programs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heartbeat fa-3x"></i>
+                <h3>Cardiology Services</h3>
+                <p>Comprehensive heart health assessments and treatments.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bone fa-3x"></i>
+                <h3>Orthopedic Services</h3>
+                <p>Diagnosis and treatment of bone and joint issues.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-flask fa-3x"></i>
+                <h3>Laboratory Services</h3>
+                <p>In-house lab services for accurate diagnostics.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-procedures fa-3x"></i>
+                <h3>Emergency Care</h3>
+                <p>24/7 emergency services for urgent medical needs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-people-arrows fa-3x"></i>
+                <h3>Nutrition Counseling</h3>
+                <p>Personalized nutrition plans to enhance your health.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 VarunCare Clinic. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+    // JavaScript for Animations
+    document.addEventListener('DOMContentLoaded', () => {
+        const servicesSection = document.querySelector('.services-section');
+        servicesSection.style.opacity = 0;
+        servicesSection.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            servicesSection.style.transition = 'opacity 1s, transform 1s';
+            servicesSection.style.opacity = 1;
+            servicesSection.style.transform = 'translateY(0)';
+        }, 100);
+    });
+</script>
+</body>
+</html>

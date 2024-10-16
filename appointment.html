@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - VarunCare Clinic</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .navbar {
+            background-color: #007bff;
+            padding: 1rem;
+        }
+        .navbar .logo h1 {
+            color: #fff;
+            margin: 0;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+        .nav-links li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffe600;
+        }
+        .appointment-section {
+            padding: 2rem;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .appointment-section h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .appointment-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .appointment-form input,
+        .appointment-form select,
+        .appointment-form textarea {
+            width: 80%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        .appointment-form input:focus,
+        .appointment-form select:focus,
+        .appointment-form textarea:focus {
+            border-color: #007bff;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            color: #fff;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffe600;
+        }
+        @media (max-width: 768px) {
+            .appointment-form input,
+            .appointment-form select,
+            .appointment-form textarea {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <h1>VarunCare <i class="fas fa-heartbeat"></i></h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="header-btn">
+            <button class="chatbot-btn">Use Chatbot</button>
+        </div>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Appointment Section -->
+<section id="appointment" class="appointment-section">
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form class="appointment-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <select required>
+                <option value="" disabled selected>Select Department</option>
+                <option value="general">General Medicine</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="orthopedics">Orthopedics</option>
+                <option value="dermatology">Dermatology</option>
+            </select>
+            <input type="date" required>
+            <input type="time" required>
+            <textarea rows="5" placeholder="Additional Information"></textarea>
+            <button type="submit" class="submit-btn">Book Appointment</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 VarunCare Clinic. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+    // JavaScript for Animations
+    document.addEventListener('DOMContentLoaded', () => {
+        const appointmentSection = document.querySelector('.appointment-section');
+        appointmentSection.style.opacity = 0;
+        appointmentSection.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            appointmentSection.style.transition = 'opacity 1s, transform 1s';
+            appointmentSection.style.opacity = 1;
+            appointmentSection.style.transform = 'translateY(0)';
+        }, 100);
+    });
+</script>
+</body>
+</html>
