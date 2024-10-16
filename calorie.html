@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator | VarunCare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #a0998b, #472ce2);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .navbar .logo h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding: 5px 0;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #ffe600;
+            border-bottom: 3px solid #ffe600;
+        }
+
+        .calorie-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: white;
+            color: #333;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin: 2rem auto;
+            margin-top: 80px; /* Ensure there's space for the fixed navbar */
+            animation: slideIn 0.5s ease-out;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .calorie-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a29fc;
+        }
+
+        .calorie-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 2rem auto;
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .calorie-form:hover {
+            transform: translateY(-5px);
+        }
+
+        .calorie-form label {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .calorie-form input {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .calorie-form input:focus {
+            outline: none;
+            border-color: #fc4a1a;
+        }
+
+        #calculate-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1.1rem;
+        }
+
+        #calculate-btn:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .result {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+            color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .calorie-section {
+                padding: 3rem 1rem;
+            }
+
+            .result {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calorie-section {
+                padding: 2rem 1rem;
+            }
+
+            .calorie-form {
+                padding: 1.5rem;
+            }
+
+            .result {
+                font-size: 1.2rem;
+            }
+
+            #calculate-btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>VarunCare <i class="fas fa-utensils"></i></h1>
+            </div>
+            <ul class="nav-links">
+               <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="bmi.html">BMI Calculator</a></li>
+            <li><a href="calorie.html">Calorie Calculator</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Calorie Calculator Section -->
+    <section id="calorie-calculator" class="calorie-section">
+        <div class="container">
+            <h2>Calorie Calculator</h2>
+            <p>Calculate the total calories you consumed today based on common Indian foods.</p>
+            <div class="calorie-form">
+                <label for="food">Food Item (e.g., Roti, Rice, Dal, etc.):</label>
+                <input type="text" id="food" placeholder="Enter food item" required>
+                <label for="quantity">Quantity (number of servings):</label>
+                <input type="number" id="quantity" placeholder="Enter quantity" required>
+                <button id="calculate-btn">Calculate Calories</button>
+            </div>
+            <div id="result" class="result"></div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 VarunCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Expanded calorie data for common Indian foods (100 items)
+        const calorieData = {
+            "roti": 70, "rice": 130, "dal": 100, "samosa": 150, "paneer curry": 190,
+            "chicken curry": 220, "biryani": 250, "poha": 180, "idli": 50, "dosa": 120,
+            "paratha": 200, "pulao": 160, "upma": 200, "chapati": 70, "aloo paratha": 210,
+            "gulab jamun": 175, "rasgulla": 125, "kachori": 190, "jalebi": 300, "sambar": 130,
+            "chole bhature": 450, "pav bhaji": 400, "dhokla": 150, "veg pulao": 180, 
+            "gajar halwa": 250, "paneer tikka": 270, "fish curry": 240, "butter chicken": 290,
+            "mutton curry": 300, "ladoo": 180, "bhindi masala": 120, "rajma": 230,
+            "curd": 60, "lassi": 150, "papad": 50, "pakora": 120, "sev puri": 100,
+            "vada pav": 300, "aloo tikki": 150, "gulab jamun": 150, "rasmalai": 180,
+            "pani puri": 30, "bhel puri": 100, "misal pav": 290, "paneer paratha": 300,
+            "chicken kebab": 200, "egg curry": 150, "egg biryani": 280, "egg roll": 150,
+            "kheer": 200, "jalebi rabri": 350, "poori sabzi": 300, "milk tea": 100,
+            "black coffee": 2, "aloo sabzi": 120, "gobi paratha": 230, "methi paratha": 210,
+            "khichdi": 200, "sweet corn": 90, "fruit salad": 50, "apple": 52,
+            "banana": 89, "mango": 60, "grapes": 70, "pomegranate": 75, "papaya": 45,
+            "watermelon": 30, "muskmelon": 40, "dates": 20, "almonds": 7, "cashews": 8,
+            "peanuts": 5, "coconut": 100, "soybean curry": 150, "chana masala": 220,
+            "dahi puri": 150, "mutton biryani": 350, "veg biryani": 200, "chicken tikka": 250,
+            "fish fry": 300, "chicken sandwich": 400, "paneer sandwich": 300, "veg sandwich": 200,
+            "bacon": 250, "cereal": 130, "butter": 100, "toast": 70, "fruit juice": 110,
+            "green tea": 0, "mint tea": 2, "veg momos": 150, "chicken momos": 200,
+            "kachumber salad": 50, "buttermilk": 50, "avocado toast": 160, "spaghetti": 210,
+            "dal fry": 200, "egg omelette": 120
+        };
+
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const food = document.getElementById('food').value.toLowerCase();
+            const quantity = parseFloat(document.getElementById('quantity').value);
+
+            if (calorieData[food] && quantity > 0) {
+                const totalCalories = (calorieData[food] * quantity).toFixed(2);
+                const resultDiv = document.getElementById('result');
+                resultDiv.textContent = `Total calories for ${quantity} servings of ${food}: ${totalCalories} kcal`;
+
+                // Clear previous result animation
+                resultDiv.style.opacity = 0; // Hide initially
+                setTimeout(() => {
+                    resultDiv.style.opacity = 1; // Fade in effect
+                }, 100); // Delay to allow for opacity change
+            } else {
+                alert('Please enter a valid food item and quantity.');
+            }
+        });
+    </script>
+</body>
+</html>
