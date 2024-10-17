@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Practice - VarunCare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .navbar {
+            background-color: #007bff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo h1 {
+            color: #fff;
+            margin: 0;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffe600;
+        }
+        .exercise-container {
+            padding: 2rem;
+            background-color: #ffffff;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .exercise-title {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        .exercise-gif {
+            width: 70%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .timer {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .user-timer {
+            margin: 1rem 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding: 0 2rem;
+        }
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .finish-button {
+            background-color: #dc3545;
+        }
+        .finish-button:hover {
+            background-color: #c82333;
+        }
+        .marks {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .new-exercise-image {
+            width: 40%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .new-exercise-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">
+        <h1>VarunCare <i class="fas fa-heartbeat"></i></h1>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="bmi.html">BMI Calculator</a></li>
+        <li><a href="calorie.html">Calorie Calculator</a></li>
+        <li><a href="yoga.html">Yoga Practice</a></li>
+    </ul>
+</nav>
+
+<!-- Exercise Section -->
+<div class="exercise-container">
+    <h2 class="exercise-title">Yoga Practice</h2>
+    <div class="user-timer">
+        <label for="user-time">Set Time (in seconds): </label>
+        <input type="number" id="user-time" min="5" placeholder="Enter time in seconds">
+        <button id="set-timer" class="button">Set Timer</button>
+    </div>
+    <div class="timer" id="timer">Time: 0:00</div>
+    <div class="exercise-container">
+        <img id="new-exercise-image" class="new-exercise-image" src="asset/Downward _Dog.png" alt="Exercise Image">
+        <h3 id="exercise-title">Downward Dog Pose</h3>
+    </div>
+    <div class="marks">Marks: <span id="marks">0</span>/200</div>
+    <div class="buttons">
+        <button class="button" id="complete">Complete</button>
+        <button class="button" id="next">Next Exercise</button>
+        <button class="button finish-button" id="finish">Finish All</button>
+    </div>
+</div>
+
+<script>
+    // JavaScript for Yoga Practice
+    const exercises = [
+        { title: "Downward Dog", img: "asset/Downward_Dog.png" }, // Local image path
+        { title: "Warrior II", img: "https://images.unsplash.com/photo-1586779221333-287b9537c5c3" },
+        { title: "Tree Pose", img: "https://images.unsplash.com/photo-1587568500891-7c80cb7c79bc" },
+        { title: "Cobra Pose", img: "https://images.unsplash.com/photo-1590431083320-3d6594b421fc" },
+        { title: "Bridge Pose", img: "https://images.unsplash.com/photo-1600630198118-8ff6aeaa8373" },
+        { title: "Chair Pose", img: "https://images.unsplash.com/photo-1602312380320-2d9cbd76e56d" },
+        { title: "Cat-Cow Stretch", img: "https://images.unsplash.com/photo-1543520492-5a3b5c8a03c3" },
+        { title: "Triangle Pose", img: "https://images.unsplash.com/photo-1596482412161-cbd0eaf51c38" },
+        { title: "Plank Pose", img: "https://images.unsplash.com/photo-1596482412151-d1f82a732249" },
+        { title: "Seated Forward Bend", img: "https://images.unsplash.com/photo-1596482412167-d15bffabf5b7" },
+        { title: "Child's Pose", img: "https://images.unsplash.com/photo-1600577486681-0d42f2b3b7c0" },
+        { title: "Fish Pose", img: "https://images.unsplash.com/photo-1596482412100-8ca177cc8e84" },
+        { title: "Kneeling Pose", img: "https://images.unsplash.com/photo-1596482412180-1c2f86560c06" },
+        { title: "Lotus Pose", img: "https://images.unsplash.com/photo-1575940440348-f38e37b27d0c" },
+        { title: "Crescent Lunge", img: "https://images.unsplash.com/photo-1596482412100-8ca177cc8e84" },
+        { title: "Pigeon Pose", img: "https://images.unsplash.com/photo-1584862365147-7d62fd2263b7" },
+        { title: "Side Plank", img: "https://images.unsplash.com/photo-1596482412183-c2c8181b1da6" },
+        { title: "Eagle Pose", img: "https://images.unsplash.com/photo-1596482412113-1620ee78e9e5" },
+        { title: "Camel Pose", img: "https://images.unsplash.com/photo-1600580559607-22b03b12bde6" },
+        { title: "Boat Pose", img: "https://images.unsplash.com/photo-1611638613091-510b37220d52" },
+        { title: "Crow Pose", img: "https://images.unsplash.com/photo-1600606384253-e2dc788ab1c5" },
+        { title: "Sun Salutation", img: "https://images.unsplash.com/photo-1596482412169-c25cf76f2fc4" }
+    ];
+
+    let currentExercise = 0;
+    let totalMarks = 0;
+    let timerInterval;
+    let exerciseTime = 0;
+
+    function loadExercise() {
+        const exercise = exercises[currentExercise];
+        document.getElementById('exercise-gif').src = exercise.img; // Change gif to img
+        document.querySelector('.exercise-title').innerText = exercise.title;
+        document.getElementById('timer').innerText = `Time: ${exerciseTime}:00`;
+    }
+
+    document.getElementById('set-timer').addEventListener('click', () => {
+        exerciseTime = parseInt(document.getElementById('user-time').value);
+        if (isNaN(exerciseTime) || exerciseTime < 5) {
+            alert("Please enter a valid time (minimum 5 seconds).");
+            return;
+        }
+        loadExercise();
+        startTimer();
+    });
+
+    function startTimer() {
+        let timeRemaining = exerciseTime;
+        document.getElementById('timer').innerText = `Time: ${Math.floor(timeRemaining / 60)}:${timeRemaining % 60 < 10 ? '0' : ''}${timeRemaining % 60}`;
+        
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            document.getElementById('timer').innerText = `Time: ${Math.floor(timeRemaining / 60)}:${timeRemaining % 60 < 10 ? '0' : ''}${timeRemaining % 60}`;
+            
+            // When time is up
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('complete').click(); // Auto mark complete
+            }
+        }, 1000);
+    }
+
+    document.getElementById('complete').addEventListener('click', () => {
+        clearInterval(timerInterval);
+        const marks = Math.min(Math.floor(exerciseTime / 10) * 2, 10); // 2 marks for each 10 seconds
+        totalMarks += marks;
+        document.getElementById('marks').innerText = totalMarks;
+
+        alert(`You completed ${exercises[currentExercise].title} and earned ${marks} marks!`);
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+        currentExercise++;
+        if (currentExercise < exercises.length) {
+            loadExercise();
+            document.getElementById('user-time').value = ''; // Reset the timer input
+        } else {
+            alert('You have completed all exercises!');
+        }
+    });
+
+    document.getElementById('finish').addEventListener('click', () => {
+        clearInterval(timerInterval);
+        alert(`You finished the workout! Total Marks: ${totalMarks}`);
+    });
+
+    // Load the first exercise initially
+    loadExercise();
+</script>
+
+</body>
+</html>
